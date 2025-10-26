@@ -209,21 +209,30 @@ def verify_face():
         # Compare with all registered users
         best_match = None
         best_similarity = 0
-        similarity_threshold = 0.6  # Adjust this threshold as needed
+        similarity_threshold = 0.25  # Updated to optimal threshold from analysis
         
         print("🔍 [VERIFICATION] Comparing with registered users...")
         user_count = 0
+        similarity_scores = []  # Store all similarity scores for detailed reporting
+        
         for user in users_collection.find():
             user_count += 1
             stored_embedding = np.array(user['embedding'])
             # Use your working.py cosine similarity function
             similarity = cosine_similarity(test_embedding, stored_embedding)
             
+            # Store similarity score with username for reporting
+            similarity_scores.append({
+                'username': user['username'],
+                'similarity': float(similarity)
+            })
+            
             print(f"📊 [VERIFICATION] User '{user['username']}': Similarity = {similarity:.4f}")
             
-            if similarity > best_similarity and similarity > similarity_threshold:
+            if similarity > best_similarity:
                 best_similarity = similarity
-                best_match = user
+                if similarity > similarity_threshold:
+                    best_match = user
         
         comparison_time = datetime.now()
         total_time = (comparison_time - start_time).total_seconds()
@@ -241,11 +250,37 @@ def verify_face():
                 'face_crop': face_crop_data_url
             })
         else:
-            print(f"❌ [VERIFICATION] FAILED! Best similarity: {best_similarity:.4f} (threshold: {similarity_threshold})")
+            # Sort similarity scores in descending order for better readability
+            similarity_scores.sort(key=lambda x: x['similarity'], reverse=True)
+            
+            print(f"\n❌ [VERIFICATION] MATCH NOT FOUND!")
+            print(f"🔴 [VERIFICATION] Threshold: {similarity_threshold}")
+            print(f"🔴 [VERIFICATION] Best similarity: {best_similarity:.4f}")
+            print(f"🔴 [VERIFICATION] Gap from threshold: {(similarity_threshold - best_similarity):.4f}")
+            print(f"\n📊 [VERIFICATION] All Similarity Scores (sorted high to low):")
+            print("=" * 60)
+            
+            for idx, score_data in enumerate(similarity_scores, 1):
+                username = score_data['username']
+                score = score_data['similarity']
+                status = "✓ PASS" if score > similarity_threshold else "✗ FAIL"
+                print(f"{idx:2d}. {username:20s} | Similarity: {score:.4f} | {status}")
+            
+            print("=" * 60)
+            print(f"🔴 [VERIFICATION] No user matched above threshold {similarity_threshold}")
+            
+            if best_similarity > 0:
+                closest_user = similarity_scores[0]['username']
+                print(f"🔴 [VERIFICATION] Closest match: '{closest_user}' with {best_similarity:.4f} similarity")
+            
+            print()
+            
             return jsonify({
                 'success': False,
                 'message': 'Face not recognized',
                 'similarity': float(best_similarity) if best_similarity > 0 else 0,
+                'threshold': float(similarity_threshold),
+                'all_scores': similarity_scores,  # Include all scores in response
                 'bbox': bbox.tolist() if bbox is not None else None,
                 'face_crop': face_crop_data_url
             })

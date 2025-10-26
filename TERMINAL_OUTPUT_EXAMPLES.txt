@@ -1,0 +1,268 @@
+===============================================================================
+            TERMINAL OUTPUT EXAMPLES - FACE VERIFICATION
+================================================================================
+
+SCENARIO 1: SUCCESSFUL MATCH
+================================================================================
+
+🔍 [VERIFICATION] Starting face verification...
+⚡ [VERIFICATION] Face embedding extracted in 0.34s
+🔍 [VERIFICATION] Comparing with registered users...
+📊 [VERIFICATION] User 'alice_wonder': Similarity = 0.1234
+📊 [VERIFICATION] User 'bob_builder': Similarity = 0.1567
+📊 [VERIFICATION] User 'john_doe': Similarity = 0.5847
+📊 [VERIFICATION] User 'jane_smith': Similarity = 0.1823
+📊 [VERIFICATION] User 'charlie_king': Similarity = 0.1345
+⚡ [VERIFICATION] Compared with 5 users in 0.12s
+🏁 [VERIFICATION] Total verification time: 0.46s
+✅ [VERIFICATION] SUCCESSFUL! User 'john_doe' verified with 0.5847 similarity
+
+
+SCENARIO 2: NO MATCH FOUND - COMPLETE STRANGER
+================================================================================
+
+🔍 [VERIFICATION] Starting face verification...
+⚡ [VERIFICATION] Face embedding extracted in 0.31s
+🔍 [VERIFICATION] Comparing with registered users...
+📊 [VERIFICATION] User 'alice_wonder': Similarity = 0.0847
+📊 [VERIFICATION] User 'bob_builder': Similarity = 0.1123
+📊 [VERIFICATION] User 'john_doe': Similarity = 0.0956
+📊 [VERIFICATION] User 'jane_smith': Similarity = 0.1034
+📊 [VERIFICATION] User 'charlie_king': Similarity = 0.0889
+⚡ [VERIFICATION] Compared with 5 users in 0.11s
+🏁 [VERIFICATION] Total verification time: 0.42s
+
+❌ [VERIFICATION] MATCH NOT FOUND!
+🔴 [VERIFICATION] Threshold: 0.25
+🔴 [VERIFICATION] Best similarity: 0.1123
+🔴 [VERIFICATION] Gap from threshold: 0.1377
+
+📊 [VERIFICATION] All Similarity Scores (sorted high to low):
+============================================================
+ 1. bob_builder           | Similarity: 0.1123 | ✗ FAIL
+ 2. jane_smith            | Similarity: 0.1034 | ✗ FAIL
+ 3. john_doe              | Similarity: 0.0956 | ✗ FAIL
+ 4. charlie_king          | Similarity: 0.0889 | ✗ FAIL
+ 5. alice_wonder          | Similarity: 0.0847 | ✗ FAIL
+============================================================
+🔴 [VERIFICATION] No user matched above threshold 0.25
+🔴 [VERIFICATION] Closest match: 'bob_builder' with 0.1123 similarity
+
+
+SCENARIO 3: NO MATCH - CLOSE BUT NOT ENOUGH
+================================================================================
+
+🔍 [VERIFICATION] Starting face verification...
+⚡ [VERIFICATION] Face embedding extracted in 0.33s
+🔍 [VERIFICATION] Comparing with registered users...
+📊 [VERIFICATION] User 'alice_wonder': Similarity = 0.1678
+📊 [VERIFICATION] User 'bob_builder': Similarity = 0.1234
+📊 [VERIFICATION] User 'john_doe': Similarity = 0.2487
+📊 [VERIFICATION] User 'jane_smith': Similarity = 0.1923
+📊 [VERIFICATION] User 'charlie_king': Similarity = 0.1456
+⚡ [VERIFICATION] Compared with 5 users in 0.10s
+🏁 [VERIFICATION] Total verification time: 0.43s
+
+❌ [VERIFICATION] MATCH NOT FOUND!
+🔴 [VERIFICATION] Threshold: 0.25
+🔴 [VERIFICATION] Best similarity: 0.2487
+🔴 [VERIFICATION] Gap from threshold: 0.0013
+
+📊 [VERIFICATION] All Similarity Scores (sorted high to low):
+============================================================
+ 1. john_doe              | Similarity: 0.2487 | ✗ FAIL  ⚠️ VERY CLOSE!
+ 2. jane_smith            | Similarity: 0.1923 | ✗ FAIL
+ 3. alice_wonder          | Similarity: 0.1678 | ✗ FAIL
+ 4. charlie_king          | Similarity: 0.1456 | ✗ FAIL
+ 5. bob_builder           | Similarity: 0.1234 | ✗ FAIL
+============================================================
+🔴 [VERIFICATION] No user matched above threshold 0.25
+🔴 [VERIFICATION] Closest match: 'john_doe' with 0.2487 similarity
+
+⚠️  NOTE: User 'john_doe' was VERY CLOSE (gap: 0.0013)
+    This might indicate:
+    - Poor lighting conditions
+    - Different angle/expression
+    - User might need re-registration
+    - Consider asking user to try again
+
+
+SCENARIO 4: NO MATCH - MULTIPLE SIMILAR FACES
+================================================================================
+
+🔍 [VERIFICATION] Starting face verification...
+⚡ [VERIFICATION] Face embedding extracted in 0.35s
+🔍 [VERIFICATION] Comparing with registered users...
+📊 [VERIFICATION] User 'alice_wonder': Similarity = 0.2156
+📊 [VERIFICATION] User 'bob_builder': Similarity = 0.2089
+📊 [VERIFICATION] User 'john_doe': Similarity = 0.2234
+📊 [VERIFICATION] User 'jane_smith': Similarity = 0.2178
+📊 [VERIFICATION] User 'charlie_king': Similarity = 0.2045
+⚡ [VERIFICATION] Compared with 5 users in 0.11s
+🏁 [VERIFICATION] Total verification time: 0.46s
+
+❌ [VERIFICATION] MATCH NOT FOUND!
+🔴 [VERIFICATION] Threshold: 0.25
+🔴 [VERIFICATION] Best similarity: 0.2234
+🔴 [VERIFICATION] Gap from threshold: 0.0266
+
+📊 [VERIFICATION] All Similarity Scores (sorted high to low):
+============================================================
+ 1. john_doe              | Similarity: 0.2234 | ✗ FAIL
+ 2. jane_smith            | Similarity: 0.2178 | ✗ FAIL
+ 3. alice_wonder          | Similarity: 0.2156 | ✗ FAIL
+ 4. bob_builder           | Similarity: 0.2089 | ✗ FAIL
+ 5. charlie_king          | Similarity: 0.2045 | ✗ FAIL
+============================================================
+🔴 [VERIFICATION] No user matched above threshold 0.25
+🔴 [VERIFICATION] Closest match: 'john_doe' with 0.2234 similarity
+
+⚠️  NOTE: Multiple users have similar scores (0.20-0.22 range)
+    This might indicate:
+    - Generic/common facial features
+    - Similar-looking people in database
+    - System correctly rejecting all (no false acceptance)
+
+
+SCENARIO 5: NO MATCH - WITH MANY REGISTERED USERS
+================================================================================
+
+🔍 [VERIFICATION] Starting face verification...
+⚡ [VERIFICATION] Face embedding extracted in 0.32s
+🔍 [VERIFICATION] Comparing with registered users...
+📊 [VERIFICATION] User 'user_001': Similarity = 0.0945
+📊 [VERIFICATION] User 'user_002': Similarity = 0.1234
+📊 [VERIFICATION] User 'user_003': Similarity = 0.0878
+📊 [VERIFICATION] User 'user_004': Similarity = 0.1456
+📊 [VERIFICATION] User 'user_005': Similarity = 0.1123
+📊 [VERIFICATION] User 'user_006': Similarity = 0.1678
+📊 [VERIFICATION] User 'user_007': Similarity = 0.0956
+📊 [VERIFICATION] User 'user_008': Similarity = 0.1345
+📊 [VERIFICATION] User 'user_009': Similarity = 0.1567
+📊 [VERIFICATION] User 'user_010': Similarity = 0.1089
+📊 [VERIFICATION] User 'user_011': Similarity = 0.0823
+📊 [VERIFICATION] User 'user_012': Similarity = 0.1201
+⚡ [VERIFICATION] Compared with 12 users in 0.15s
+🏁 [VERIFICATION] Total verification time: 0.47s
+
+❌ [VERIFICATION] MATCH NOT FOUND!
+🔴 [VERIFICATION] Threshold: 0.25
+🔴 [VERIFICATION] Best similarity: 0.1678
+🔴 [VERIFICATION] Gap from threshold: 0.0822
+
+📊 [VERIFICATION] All Similarity Scores (sorted high to low):
+============================================================
+ 1. user_006              | Similarity: 0.1678 | ✗ FAIL
+ 2. user_009              | Similarity: 0.1567 | ✗ FAIL
+ 3. user_004              | Similarity: 0.1456 | ✗ FAIL
+ 4. user_008              | Similarity: 0.1345 | ✗ FAIL
+ 5. user_002              | Similarity: 0.1234 | ✗ FAIL
+ 6. user_012              | Similarity: 0.1201 | ✗ FAIL
+ 7. user_005              | Similarity: 0.1123 | ✗ FAIL
+ 8. user_010              | Similarity: 0.1089 | ✗ FAIL
+ 9. user_007              | Similarity: 0.0956 | ✗ FAIL
+10. user_001              | Similarity: 0.0945 | ✗ FAIL
+11. user_003              | Similarity: 0.0878 | ✗ FAIL
+12. user_011              | Similarity: 0.0823 | ✗ FAIL
+============================================================
+🔴 [VERIFICATION] No user matched above threshold 0.25
+🔴 [VERIFICATION] Closest match: 'user_006' with 0.1678 similarity
+
+
+================================================================================
+                         UNDERSTANDING THE OUTPUT
+================================================================================
+
+SYMBOLS EXPLAINED:
+------------------
+✅ = Verification successful
+❌ = Verification failed (no match)
+🔍 = Searching/comparing
+⚡ = Performance metrics
+🏁 = Total time
+📊 = Similarity score
+🔴 = Rejection details
+✗ = Failed threshold check
+✓ = Passed threshold check
+⚠️ = Warning/attention needed
+
+SIMILARITY SCORE INTERPRETATION:
+---------------------------------
+0.00 - 0.15  →  Completely different faces (clear rejection)
+0.15 - 0.20  →  Different faces (safe rejection)
+0.20 - 0.24  →  Somewhat similar but different (correct rejection)
+0.25 - 0.30  →  THRESHOLD ZONE (0.25 = optimal cutoff)
+0.30 - 0.50  →  Same person (good match)
+0.50 - 0.70  →  Same person (excellent match)
+0.70 - 1.00  →  Same person (nearly identical)
+
+GAP FROM THRESHOLD:
+-------------------
+Gap > 0.10   →  Clear rejection (completely different)
+Gap 0.05-0.10 →  Safe rejection (different person)
+Gap 0.01-0.05 →  Correct rejection (close but different)
+Gap < 0.01   →  Very close! May need retry/better conditions
+Gap = 0.00   →  Exactly at threshold (edge case)
+Gap < 0      →  Match found (similarity > threshold)
+
+ACTIONABLE INSIGHTS:
+--------------------
+
+If Best Similarity < 0.15:
+  → Complete stranger, clear security threat
+
+If Best Similarity 0.15-0.20:
+  → Different person, safe rejection
+
+If Best Similarity 0.20-0.24:
+  → Close but no match, possibly similar features
+
+If Best Similarity 0.24-0.249:
+  → VERY CLOSE! Consider:
+     • Ask user to try again
+     • Check lighting conditions
+     • Verify camera angle
+     • May need re-registration
+
+If Multiple Users Near Threshold:
+  → Possible family members or similar features
+  → System correctly rejecting all (good security)
+
+If All Scores Very Low (<0.10):
+  → Completely unregistered face
+  → Possible spoofing attempt with photo/video
+  → Clear security rejection
+
+================================================================================
+                         DEBUGGING TIPS
+================================================================================
+
+CASE 1: Legitimate user rejected (similarity 0.24-0.249)
+SOLUTION:
+  • Improve lighting
+  • Try different angle
+  • Remove glasses/hat if worn during registration
+  • Re-register with multiple photos
+  • Check if threshold too high (consider 0.23 if many false rejections)
+
+CASE 2: All similarities very low (<0.10)
+POSSIBLE CAUSES:
+  • Completely different person (correct rejection) ✓
+  • Bad image quality
+  • Poor face detection
+  • Spoofing attempt
+
+CASE 3: Multiple users with similar high scores (0.20-0.24)
+INTERPRETATION:
+  • Generic facial features
+  • Similar-looking people registered
+  • System working correctly (rejecting all) ✓
+
+CASE 4: Inconsistent matches for same user
+SOLUTION:
+  • Register user with multiple angles
+  • Use better lighting during registration
+  • Ensure consistent camera quality
+  • Re-register problematic users
+
+================================================================================

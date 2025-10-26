@@ -1,0 +1,270 @@
+[
+  {
+    "dataset": "dataset1",
+    "num_persons": 25,
+    "num_images": 249,
+    "failed_images": 1,
+    "num_positive_pairs": 100,
+    "num_negative_pairs": 100,
+    "positive_similarities": {
+      "mean": 0.5324443578720093,
+      "std": 0.14397695660591125,
+      "min": 0.0510498471558094,
+      "max": 0.8291583061218262
+    },
+    "negative_similarities": {
+      "mean": 0.013912415131926537,
+      "std": 0.07167768478393555,
+      "min": -0.15000098943710327,
+      "max": 0.24128036201000214
+    },
+    "threshold_results": [
+      {
+        "threshold": 0.3,
+        "accuracy": 0.975,
+        "precision": 1.0,
+        "recall": 0.95,
+        "f1_score": 0.9743589743589743,
+        "tp": 95,
+        "tn": 100,
+        "fp": 0,
+        "fn": 5
+      },
+      {
+        "threshold": 0.35,
+        "accuracy": 0.965,
+        "precision": 1.0,
+        "recall": 0.93,
+        "f1_score": 0.9637305699481865,
+        "tp": 93,
+        "tn": 100,
+        "fp": 0,
+        "fn": 7
+      },
+      {
+        "threshold": 0.39999999999999997,
+        "accuracy": 0.935,
+        "precision": 1.0,
+        "recall": 0.87,
+        "f1_score": 0.9304812834224598,
+        "tp": 87,
+        "tn": 100,
+        "fp": 0,
+        "fn": 13
+      },
+      {
+        "threshold": 0.44999999999999996,
+        "accuracy": 0.875,
+        "precision": 1.0,
+        "recall": 0.75,
+        "f1_score": 0.8571428571428571,
+        "tp": 75,
+        "tn": 100,
+        "fp": 0,
+        "fn": 25
+      },
+      {
+        "threshold": 0.49999999999999994,
+        "accuracy": 0.8,
+        "precision": 1.0,
+        "recall": 0.6,
+        "f1_score": 0.7499999999999999,
+        "tp": 60,
+        "tn": 100,
+        "fp": 0,
+        "fn": 40
+      },
+      {
+        "threshold": 0.5499999999999999,
+        "accuracy": 0.74,
+        "precision": 1.0,
+        "recall": 0.48,
+        "f1_score": 0.6486486486486487,
+        "tp": 48,
+        "tn": 100,
+        "fp": 0,
+        "fn": 52
+      },
+      {
+        "threshold": 0.5999999999999999,
+        "accuracy": 0.655,
+        "precision": 1.0,
+        "recall": 0.31,
+        "f1_score": 0.47328244274809156,
+        "tp": 31,
+        "tn": 100,
+        "fp": 0,
+        "fn": 69
+      },
+      {
+        "threshold": 0.6499999999999999,
+        "accuracy": 0.605,
+        "precision": 1.0,
+        "recall": 0.21,
+        "f1_score": 0.34710743801652894,
+        "tp": 21,
+        "tn": 100,
+        "fp": 0,
+        "fn": 79
+      },
+      {
+        "threshold": 0.7,
+        "accuracy": 0.55,
+        "precision": 1.0,
+        "recall": 0.1,
+        "f1_score": 0.18181818181818182,
+        "tp": 10,
+        "tn": 100,
+        "fp": 0,
+        "fn": 90
+      },
+      {
+        "threshold": 0.7499999999999999,
+        "accuracy": 0.535,
+        "precision": 1.0,
+        "recall": 0.07,
+        "f1_score": 0.13084112149532712,
+        "tp": 7,
+        "tn": 100,
+        "fp": 0,
+        "fn": 93
+      }
+    ],
+    "best_threshold": 0.3,
+    "best_accuracy": 0.975
+  },
+  {
+    "dataset": "dataset2",
+    "num_persons": 25,
+    "num_images": 245,
+    "failed_images": 5,
+    "num_positive_pairs": 100,
+    "num_negative_pairs": 100,
+    "positive_similarities": {
+      "mean": 0.5427581667900085,
+      "std": 0.13735981285572052,
+      "min": 0.13092485070228577,
+      "max": 0.8205604553222656
+    },
+    "negative_similarities": {
+      "mean": 0.003484150394797325,
+      "std": 0.05761656537652016,
+      "min": -0.12281369417905807,
+      "max": 0.18726389110088348
+    },
+    "threshold_results": [
+      {
+        "threshold": 0.3,
+        "accuracy": 0.98,
+        "precision": 1.0,
+        "recall": 0.96,
+        "f1_score": 0.9795918367346939,
+        "tp": 96,
+        "tn": 100,
+        "fp": 0,
+        "fn": 4
+      },
+      {
+        "threshold": 0.35,
+        "accuracy": 0.965,
+        "precision": 1.0,
+        "recall": 0.93,
+        "f1_score": 0.9637305699481865,
+        "tp": 93,
+        "tn": 100,
+        "fp": 0,
+        "fn": 7
+      },
+      {
+        "threshold": 0.39999999999999997,
+        "accuracy": 0.925,
+        "precision": 1.0,
+        "recall": 0.85,
+        "f1_score": 0.9189189189189189,
+        "tp": 85,
+        "tn": 100,
+        "fp": 0,
+        "fn": 15
+      },
+      {
+        "threshold": 0.44999999999999996,
+        "accuracy": 0.88,
+        "precision": 1.0,
+        "recall": 0.76,
+        "f1_score": 0.8636363636363636,
+        "tp": 76,
+        "tn": 100,
+        "fp": 0,
+        "fn": 24
+      },
+      {
+        "threshold": 0.49999999999999994,
+        "accuracy": 0.795,
+        "precision": 1.0,
+        "recall": 0.59,
+        "f1_score": 0.7421383647798743,
+        "tp": 59,
+        "tn": 100,
+        "fp": 0,
+        "fn": 41
+      },
+      {
+        "threshold": 0.5499999999999999,
+        "accuracy": 0.745,
+        "precision": 1.0,
+        "recall": 0.49,
+        "f1_score": 0.6577181208053691,
+        "tp": 49,
+        "tn": 100,
+        "fp": 0,
+        "fn": 51
+      },
+      {
+        "threshold": 0.5999999999999999,
+        "accuracy": 0.695,
+        "precision": 1.0,
+        "recall": 0.39,
+        "f1_score": 0.5611510791366906,
+        "tp": 39,
+        "tn": 100,
+        "fp": 0,
+        "fn": 61
+      },
+      {
+        "threshold": 0.6499999999999999,
+        "accuracy": 0.61,
+        "precision": 1.0,
+        "recall": 0.22,
+        "f1_score": 0.36065573770491804,
+        "tp": 22,
+        "tn": 100,
+        "fp": 0,
+        "fn": 78
+      },
+      {
+        "threshold": 0.7,
+        "accuracy": 0.57,
+        "precision": 1.0,
+        "recall": 0.14,
+        "f1_score": 0.24561403508771928,
+        "tp": 14,
+        "tn": 100,
+        "fp": 0,
+        "fn": 86
+      },
+      {
+        "threshold": 0.7499999999999999,
+        "accuracy": 0.53,
+        "precision": 1.0,
+        "recall": 0.06,
+        "f1_score": 0.11320754716981131,
+        "tp": 6,
+        "tn": 100,
+        "fp": 0,
+        "fn": 94
+      }
+    ],
+    "best_threshold": 0.3,
+    "best_accuracy": 0.98
+  }
+]
