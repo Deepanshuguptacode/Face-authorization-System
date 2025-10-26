@@ -22,11 +22,11 @@ flowchart TD
     
     TerminalSuccess[🖥️ Terminal Output:<br/><br/>✅ SUCCESSFUL!<br/>User 'john_doe' verified<br/>Similarity: 0.5847]:::terminalSuccess
     
-    TerminalFail[🖥️ Terminal Output:<br/><br/>❌ MATCH NOT FOUND!<br/>🔴 Threshold: 0.25<br/>🔴 Best: 0.1847<br/>🔴 Gap: 0.0653<br/><br/>📊 All Scores:<br/>1. john | 0.1847 | ✗<br/>2. jane | 0.1523 | ✗<br/>3. bob | 0.1289 | ✗<br/>═══════════════<br/>🔴 Closest: 'john']:::terminalFail
+    TerminalFail[🖥️ Terminal Output:<br/><br/>❌ MATCH NOT FOUND!<br/>🔴 Threshold: 0.25<br/>🔴 Best: 0.1847<br/>🔴 Gap: 0.0653<br/><br/>📊 All Scores:<br/>1. john - 0.1847 - FAIL<br/>2. jane - 0.1523 - FAIL<br/>3. bob - 0.1289 - FAIL<br/>═══════════════<br/>🔴 Closest: john]:::terminalFail
     
     JSONSuccess[📄 JSON Response:<br/><br/>success: true<br/>username: john_doe<br/>similarity: 0.5847]:::jsonSuccess
     
-    JSONFail[📄 JSON Response:<br/><br/>success: false<br/>message: Not found<br/>similarity: 0.1847<br/>threshold: 0.25 🆕<br/>all_scores: [...] 🆕]:::jsonFail
+    JSONFail[📄 JSON Response:<br/><br/>success: false<br/>message: Not found<br/>similarity: 0.1847<br/>threshold: 0.25 🆕<br/>all_scores: Array 🆕]:::jsonFail
     
     FrontendSuccess[🌐 Frontend:<br/><br/>Display: Welcome back,<br/>john_doe!<br/>Show: User Dashboard]:::frontendSuccess
     
@@ -76,7 +76,7 @@ flowchart TD
 flowchart TB
     Input[📥 Input:<br/>• test_embedding 512-dim vector<br/>• stored_embeddings list<br/>• threshold = 0.25]:::inputNode
     
-    Init[🎬 Initialize:<br/>similarity_scores = [] 🆕<br/>best_similarity = 0<br/>best_match = None]:::initNode
+    Init[🎬 Initialize:<br/>similarity_scores = empty list 🆕<br/>best_similarity = 0<br/>best_match = None]:::initNode
     
     Loop{🔄 For Each User<br/>in Database}:::loopNode
     
@@ -186,7 +186,7 @@ flowchart LR
     MongoDB[(🗄️ MongoDB<br/>Stored Data)]:::dbNode
     CosineSim[📐 Cosine<br/>Similarity]:::calcNode
     Score[📊 Score<br/>0.0-1.0]:::scoreNode
-    Store[💾 Store in<br/>scores[] 🆕]:::storeNode
+    Store[💾 Store in<br/>scores list 🆕]:::storeNode
     Sort[🔀 Sort &<br/>Display 🆕]:::sortNode
     Terminal[🖥️ Terminal<br/>Output]:::terminalNode
     
@@ -264,7 +264,7 @@ flowchart TD
     
     Step5[Calculate:<br/>rank = index + 1<br/>status = ✓ PASS or ✗ FAIL]:::calcNode
     
-    Step6[Print:<br/>rank. username | score | status]:::printNode
+    Step6[Print:<br/>rank. username - score - status]:::printNode
     
     Step7[5️⃣ Print Footer:<br/>═══════════════<br/>🔴 No user matched<br/>🔴 Closest match: username]:::stepNode
     
