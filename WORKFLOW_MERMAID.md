@@ -10,10 +10,10 @@ flowchart TD
     
     LoopProcess[🔁 For Each Registered User:<br/><br/>1️⃣ Load stored embedding<br/>2️⃣ Calculate cosine similarity<br/>3️⃣ Store username, similarity_score 🆕<br/>4️⃣ Print User 'name': Similarity = X.XXXX<br/>5️⃣ Track best_similarity and best_match]:::loopNode
     
-    Decision{🎯 All Users Compared?<br/>Threshold = 0.25 🆕}:::decisionNode
+    Decision{🎯 All Users Compared?<br/>Threshold = 0.30 🆕}:::decisionNode
     
-    MatchCheck{⚖️ best_similarity > 0.25?}:::checkNode
-    NoMatchCheck{⚖️ best_similarity ≤ 0.25?}:::checkNode
+    MatchCheck{⚖️ best_similarity > 0.30?}:::checkNode
+    NoMatchCheck{⚖️ best_similarity ≤ 0.30?}:::checkNode
     
     MatchFound[✅ MATCH FOUND<br/>User Authenticated]:::successNode
     NoMatchFound[❌ NO MATCH FOUND<br/>Rejection Process]:::failNode
@@ -22,7 +22,7 @@ flowchart TD
     
     TerminalSuccess[🖥️ Terminal Output:<br/><br/>✅ SUCCESSFUL!<br/>User 'john_doe' verified<br/>Similarity: 0.5847]:::terminalSuccess
     
-    TerminalFail[🖥️ Terminal Output:<br/><br/>❌ MATCH NOT FOUND!<br/>🔴 Threshold: 0.25<br/>🔴 Best: 0.1847<br/>🔴 Gap: 0.0653<br/><br/>📊 All Scores:<br/>1. john - 0.1847 - FAIL<br/>2. jane - 0.1523 - FAIL<br/>3. bob - 0.1289 - FAIL<br/>═══════════════<br/>🔴 Closest: john]:::terminalFail
+    TerminalFail[🖥️ Terminal Output:<br/><br/>❌ MATCH NOT FOUND!<br/>🔴 Threshold: 0.0<br/>🔴 Best: 0.1847<br/>🔴 Gap: 0.0653<br/><br/>📊 All Scores:<br/>1. john - 0.1847 - FAIL<br/>2. jane - 0.1523 - FAIL<br/>3. bob - 0.1289 - FAIL<br/>═══════════════<br/>🔴 Closest: john]:::terminalFail
     
     JSONSuccess[📄 JSON Response:<br/><br/>success: true<br/>username: john_doe<br/>similarity: 0.5847]:::jsonSuccess
     
@@ -74,7 +74,7 @@ flowchart TD
 
 ```mermaid
 flowchart TB
-    Input[📥 Input:<br/>• test_embedding 512-dim vector<br/>• stored_embeddings list<br/>• threshold = 0.25]:::inputNode
+    Input[📥 Input:<br/>• test_embedding 512-dim vector<br/>• stored_embeddings list<br/>• threshold = 0.30]:::inputNode
     
     Init[🎬 Initialize:<br/>similarity_scores = empty list 🆕<br/>best_similarity = 0<br/>best_match = None]:::initNode
     
