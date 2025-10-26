@@ -59,8 +59,8 @@ flowchart TD
     classDef loopNode fill:#9F7AEA,stroke:#6B46C1,stroke-width:3px,color:#fff,font-weight:bold
     classDef decisionNode fill:#ED8936,stroke:#C05621,stroke-width:3px,color:#fff,font-weight:bold
     classDef checkNode fill:#F6AD55,stroke:#DD6B20,stroke-width:3px,color:#fff,font-weight:bold
-    classDef successNode fill:#48BB78,stroke:#2F855A,stroke-width:4px,color:#fff,font-weight:bold,box-shadow:0 4px 6px rgba(72,187,120,0.4)
-    classDef failNode fill:#F56565,stroke:#C53030,stroke-width:4px,color:#fff,font-weight:bold,box-shadow:0 4px 6px rgba(245,101,101,0.4)
+    classDef successNode fill:#48BB78,stroke:#2F855A,stroke-width:4px,color:#fff,font-weight:bold
+    classDef failNode fill:#F56565,stroke:#C53030,stroke-width:4px,color:#fff,font-weight:bold
     classDef enhancedNode fill:#805AD5,stroke:#553C9A,stroke-width:3px,color:#fff,font-weight:bold
     classDef terminalSuccess fill:#38B2AC,stroke:#234E52,stroke-width:2px,color:#fff
     classDef terminalFail fill:#E53E3E,stroke:#9B2C2C,stroke-width:2px,color:#fff
@@ -300,7 +300,7 @@ graph TB
     
     subgraph Backend["Backend Layer - Flask"]
         API[REST API Endpoints]:::backendNode
-        Verify[/api/verify_face NEW]:::apiNode
+        Verify[/api/verify_face - NEW]:::apiNode
         Register[/api/register_face]:::apiNode
     end
     
