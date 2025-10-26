@@ -300,7 +300,7 @@ graph TB
     
     subgraph Backend["Backend Layer - Flask"]
         API[REST API Endpoints]:::backendNode
-        Verify[/api/verify_face - NEW]:::apiNode
+        Verify[/api/verify_face 🆕]:::apiNode
         Register[/api/register_face]:::apiNode
     end
     
